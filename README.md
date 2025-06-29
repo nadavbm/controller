@@ -9,7 +9,7 @@ this app is programmed to listen only to pods and secrets events in kubernetes a
 use helm to install:
 
 ```
-helm install controller helm/ -n controller --create-namespaces
+helm install controller helm/ -n controller --create-namespace
 ```
 
 ### watch
@@ -17,7 +17,7 @@ helm install controller helm/ -n controller --create-namespaces
 check the pod logs with `kubectl`:
 
 ```
-$kubectl logs -controller-9b7bf7cfc-8s7tz z 
+kubectl logs -f controller-9b7bf7cfc-8s7tz 
 INFO [2025-06-29 08:45:33] MESSAGE: connect to kubernetes api in cluster
 INFO [2025-06-29 08:45:33] MESSAGE: strat running controller
 INFO [2025-06-29 08:45:33] MESSAGE: pod controller-9b7bf7cfc-8s7tz added in namespace controller
