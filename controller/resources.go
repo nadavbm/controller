@@ -64,18 +64,18 @@ func (c *Controller) newSecretsInformer() cache.SharedIndexInformer {
 // OnAdd watches resource addition events and log it
 func (c *SecretsInformer) OnAdd(obj interface{}) {
 	pod := obj.(*corev1.Secret)
-	c.logger.Info(fmt.Sprintf("pod %s added in namespace %s", pod.GetName(), pod.GetNamespace()))
+	c.logger.Info(fmt.Sprintf("secret %s added in namespace %s", pod.GetName(), pod.GetNamespace()))
 }
 
 // OnUpdate watches resource update events and log it
 func (c *SecretsInformer) OnUpdate(oldObj, obj interface{}) {
 	oldPod := oldObj.(*corev1.Secret)
 	pod := obj.(*corev1.Secret)
-	c.logger.Info(fmt.Sprintf("pod %s updated, old pod %s in namespace %s", pod.GetName(), oldPod.GetName(), pod.GetNamespace()))
+	c.logger.Info(fmt.Sprintf("secret %s updated, old secret %s in namespace %s", pod.GetName(), oldPod.GetName(), pod.GetNamespace()))
 }
 
 // OnDelete watches resource deletion events and log it
 func (c *SecretsInformer) OnDelete(obj interface{}) {
 	pod := obj.(*corev1.Secret)
-	c.logger.Info(fmt.Sprintf("pod %s deleted in namespace %s", pod.GetName(), pod.GetNamespace()))
+	c.logger.Info(fmt.Sprintf("secret %s deleted in namespace %s", pod.GetName(), pod.GetNamespace()))
 }
